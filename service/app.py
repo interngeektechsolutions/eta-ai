@@ -52,7 +52,7 @@ def health_check():
 @app.post("/predict_eta",response_model = ETAResponse)
 def predict_eta(data:ETARequest):
     try:
-        features = [[data.disatance,data.speed,data.hour,data.weekday]]
+        features = [[data.distance,data.speed,data.hour,data.weekday]]
         eta = ml_model["eta"].predict(features)[0]
         logger.info(f"Prediction:{eta:.4f} for input {data.model_dump()}")
         return ETAResponse(estimated_time_of_arrival=round(float(eta),2))

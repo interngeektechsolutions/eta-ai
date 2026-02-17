@@ -11,7 +11,7 @@ def generate_data(rows:int=5000,output_path:str="data/training_data.csv"):
         distance = np.random.uniform(0.5,10)
         speed = np.random.uniform(10,40)
         hour = np.random.randint(0,24)
-        weekday = np.random.ranint(0,7)
+        weekday = np.random.randint(0,7)
         
         traffic_factor = 1.5 if 8<= hour <= 10 or 17 <= hour <=19 else 1.0
         eta = (distance/speed) * traffic_factor 
